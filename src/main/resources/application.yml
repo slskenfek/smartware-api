@@ -1,1 +1,17 @@
-spring.application.name=ware
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://172.30.1.94:5400/smart_ware
+    username: postgres
+    password: yj1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    open-in-view: false
