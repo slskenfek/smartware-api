@@ -32,7 +32,7 @@ public class Users {
     private String gender; // 성별
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "department_id")
     private Department department; //부서
 
 }
