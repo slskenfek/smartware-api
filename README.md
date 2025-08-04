@@ -39,7 +39,7 @@ SmartWare는 출퇴근 관리, 업무 보드, 전자결재, 채팅, 실시간 �
 | Framework | Spring Boot 3.4.7                  |
 | Database | PostgreSQL                         |
 | Auth | Spring Security + JWT              |
-| Messaging | Kafka or Redis Stream (로그 및 알림 처리) |
+| Messaging | gather  (로그 및 알림 처리) |
 | Realtime | Spring WebSocket                   |
 | Build Tool | Gradle (Kotlin DSL)                |
 | Infra | Docker, jenkins, k8s               |
