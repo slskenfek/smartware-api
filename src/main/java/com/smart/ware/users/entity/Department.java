@@ -18,4 +18,8 @@ public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "department_name", length = 30, nullable = false)
+    private String departmentName; //부서 이름
+    @Column(name = "department_code", length = 30, nullable = false)
+    private String departmentCode; //부서 코드
 }

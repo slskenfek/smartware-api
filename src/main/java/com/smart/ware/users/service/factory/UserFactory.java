@@ -1,0 +1,54 @@
+package com.smart.ware.users.service.factory;
+
+import com.smart.ware.company.entity.Company;
+import com.smart.ware.company.repository.CompanyRepository;
+import com.smart.ware.users.dto.CreateUserRequest;
+import com.smart.ware.users.entity.Department;
+import com.smart.ware.users.entity.Users;
+import com.smart.ware.users.repository.DepartmentRepository;
+import com.smart.ware.users.service.UserAuthService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+
+/**
+ * 유저 조립 담당
+ * 우선 기본 유저만 생성 한다는 정책만 적용
+ * 추후 관리자 계정 정책
+ * 일회성 계정 정책 등등 추가 되면 확장 유연하도록 설계
+ */
+@Component
+@RequiredArgsConstructor
+public class UserFactory {
+
+    private final CompanyRepository companyRepository;
+    private final DepartmentRepository departmentRepository;
+    private final UserAuthService userAuthService;
+
+
+    public Users createUser(CreateUserRequest request) {
+        Company company = companyRepository.findByCompanyCode(request.getCompanyCode()).orElseThrow(
+                () -> new IllegalArgumentException("그룹값이 존재하지 않습니다.")
+        );
+
+        Department department = departmentRepository.findByDepartmentCode(request.getDepartmentName()).orElseThrow(
+                () -> new IllegalArgumentException("부서가 존재 하지 않습니다.")
+        );
+
+        request.setPassword(userAuthService.passwordEncode(request.getPassword()));
+
+        return createUserEntity(request, company, department);
+    }
+
+    private Users createUserEntity(CreateUserRequest request, Company company, Department department) {
+
+        Users users = new Users();
+        users.setUserId(request.getUserId());
+        users.setUserName(request.getUserName());
+        users.setGender(request.getGender());
+        users.setCompany(company);
+        users.setDepartment(department);
+        users.setPassword(request.getPassword());
+        return users;
+    }
+
+}

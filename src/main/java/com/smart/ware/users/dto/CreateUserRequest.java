@@ -20,4 +20,6 @@ public class CreateUserRequest {
     private String password; // 비밀번호
 
     private String gender; // 성별
+
+    private String companyCode; // 회사 코드
 }
