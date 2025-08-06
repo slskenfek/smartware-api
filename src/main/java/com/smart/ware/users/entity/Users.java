@@ -1,6 +1,7 @@
 package com.smart.ware.users.entity;
 
 import com.smart.ware.company.entity.Company;
+import com.smart.ware.roles.entity.Roles;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,5 +40,8 @@ public class Users {
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
     private Company company; //그룹(회사)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "role_id")
+    private Roles roles;
 
 }

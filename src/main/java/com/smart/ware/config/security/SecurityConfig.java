@@ -23,8 +23,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(new AntPathRequestMatcher("/swagger-ui/**"),
                                 new AntPathRequestMatcher("/v3/api-docs/**")
-
                         ).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/api/admin/**")).hasAnyRole("ADMIN")
                         .anyRequest().authenticated()
                 );
 
