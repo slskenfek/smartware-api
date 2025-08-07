@@ -1,10 +1,7 @@
 package com.smart.ware.company.entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "company")
@@ -41,4 +38,15 @@ public class Company {
     @Column(name = "use_yn", length = 1)
     private String useYn; //사용 여부
 
+    @Builder
+    public Company(String companyName, String companyCode, String ceoName, String address, String email, String businessNumber, String logoUrl, String useYn) {
+        this.companyName = companyName;
+        this.companyCode = companyCode;
+        this.ceoName = ceoName;
+        this.address = address;
+        this.email = email;
+        this.businessNumber = businessNumber;
+        this.logoUrl = logoUrl;
+        this.useYn = useYn;
+    }
 }
