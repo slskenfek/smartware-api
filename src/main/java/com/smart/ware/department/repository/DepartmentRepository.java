@@ -1,6 +1,6 @@
-package com.smart.ware.users.repository;
+package com.smart.ware.department.repository;
 
-import com.smart.ware.users.entity.Department;
+import com.smart.ware.department.entity.Department;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

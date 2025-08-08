@@ -21,5 +21,4 @@ public class CreateUserRequest {
 
     private String gender; // 성별
 
-    private String companyCode; // 회사 코드
 }

@@ -1,5 +1,6 @@
-package com.smart.ware.users.entity;
+package com.smart.ware.department.entity;
 
+import com.smart.ware.company.entity.Company;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,4 +23,8 @@ public class Department {
     private String departmentName; //부서 이름
     @Column(name = "department_code", length = 30, nullable = false)
     private String departmentCode; //부서 코드
+
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "company_id")
+    private Company company;
 }

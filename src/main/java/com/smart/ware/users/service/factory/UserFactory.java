@@ -3,9 +3,9 @@ package com.smart.ware.users.service.factory;
 import com.smart.ware.company.entity.Company;
 import com.smart.ware.company.repository.CompanyRepository;
 import com.smart.ware.users.dto.CreateUserRequest;
-import com.smart.ware.users.entity.Department;
+import com.smart.ware.department.entity.Department;
 import com.smart.ware.users.entity.Users;
-import com.smart.ware.users.repository.DepartmentRepository;
+import com.smart.ware.department.repository.DepartmentRepository;
 import com.smart.ware.users.service.UserAuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -26,9 +26,6 @@ public class UserFactory {
 
 
     public Users createUser(CreateUserRequest request) {
-        Company company = companyRepository.findByCompanyCode(request.getCompanyCode()).orElseThrow(
-                () -> new IllegalArgumentException("그룹값이 존재하지 않습니다.")
-        );
 
         Department department = departmentRepository.findByDepartmentCode(request.getDepartmentName()).orElseThrow(
                 () -> new IllegalArgumentException("부서가 존재 하지 않습니다.")
@@ -36,16 +33,15 @@ public class UserFactory {
 
         request.setPassword(userAuthService.passwordEncode(request.getPassword()));
 
-        return createUserEntity(request, company, department);
+        return createUserEntity(request, department);
     }
 
-    private Users createUserEntity(CreateUserRequest request, Company company, Department department) {
+    private Users createUserEntity(CreateUserRequest request, Department department) {
 
         Users users = new Users();
         users.setUserId(request.getUserId());
         users.setUserName(request.getUserName());
         users.setGender(request.getGender());
-        users.setCompany(company);
         users.setDepartment(department);
         users.setPassword(request.getPassword());
         return users;

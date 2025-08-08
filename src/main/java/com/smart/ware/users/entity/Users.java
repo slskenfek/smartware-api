@@ -1,6 +1,7 @@
 package com.smart.ware.users.entity;
 
 import com.smart.ware.company.entity.Company;
+import com.smart.ware.department.entity.Department;
 import com.smart.ware.roles.entity.Roles;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -37,9 +38,7 @@ public class Users {
     @JoinColumn(name = "department_id")
     private Department department; //부서
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "company_id")
-    private Company company; //그룹(회사)
+
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id")
     private Roles roles;

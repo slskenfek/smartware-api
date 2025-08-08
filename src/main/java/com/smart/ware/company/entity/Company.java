@@ -1,5 +1,6 @@
 package com.smart.ware.company.entity;
 
+import com.smart.ware.department.entity.Department;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -37,6 +38,7 @@ public class Company {
 
     @Column(name = "use_yn", length = 1)
     private String useYn; //사용 여부
+
 
     @Builder
     public Company(String companyName, String companyCode, String ceoName, String address, String email, String businessNumber, String logoUrl, String useYn) {
