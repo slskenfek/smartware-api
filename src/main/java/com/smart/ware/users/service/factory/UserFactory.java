@@ -26,23 +26,16 @@ public class UserFactory {
 
 
     public Users createUser(CreateUserRequest request) {
-
-        Department department = departmentRepository.findByDepartmentCode(request.getDepartmentName()).orElseThrow(
-                () -> new IllegalArgumentException("부서가 존재 하지 않습니다.")
-        );
-
         request.setPassword(userAuthService.passwordEncode(request.getPassword()));
-
-        return createUserEntity(request, department);
+        return createUserEntity(request);
     }
 
-    private Users createUserEntity(CreateUserRequest request, Department department) {
+    private Users createUserEntity(CreateUserRequest request) {
 
         Users users = new Users();
         users.setUserId(request.getUserId());
         users.setUserName(request.getUserName());
         users.setGender(request.getGender());
-        users.setDepartment(department);
         users.setPassword(request.getPassword());
         return users;
     }

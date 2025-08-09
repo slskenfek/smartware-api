@@ -1,6 +1,6 @@
 package com.smart.ware.company.controller;
 
-import com.smart.ware.company.dto.CreateCompanyRequest;
+import com.smart.ware.company.dto.request.CreateCompanyRequest;
 import com.smart.ware.company.service.CompanyAdminService;
 import com.smart.ware.response.ResponseAPI;
 import io.swagger.v3.oas.annotations.Operation;
@@ -18,7 +18,7 @@ import java.net.URI;
 @RestController
 @RequestMapping("/api/admin/company")
 @RequiredArgsConstructor
-@Tag(name = "그룹(회사)", description = "그룹 관련 API 입니다. 사전 등록된 그룹 관리자만 사용 할 수 있습니다.")
+@Tag(name = "그룹(회사) - 관리자용", description = "그룹 관련 API 입니다. 사전 등록된 그룹 관리자만 사용 할 수 있습니다.")
 public class CompanyAdminController {
 
     private final CompanyAdminService companyAdminService;

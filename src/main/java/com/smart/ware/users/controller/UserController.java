@@ -24,12 +24,10 @@ public class UserController {
     @PostMapping("")
     @Operation(summary = "유저 등록", description = "유저 등록 할수 있는 API 입니다."
             , parameters = {
-            @Parameter(name = "departmentName", description = "부서명"),
             @Parameter(name = "userId", description = "유저 아이디"),
             @Parameter(name = "userName", description = "유저 이름"),
             @Parameter(name = "password", description = "비밀번호"),
             @Parameter(name = "gender", description = "성별"),
-            @Parameter(name = "companyCode", description = "회사 코드, 미리 조회된 회사 정보 데이터 안에 있는 값으로 요청 해야합니다."),
     }
     )
     public ResponseEntity<Boolean> createUsers(@RequestBody CreateUserRequest createUserRequest) {

@@ -1,4 +1,4 @@
-package com.smart.ware.company.dto;
+package com.smart.ware.company.dto.request;
 
 import com.smart.ware.company.entity.Company;
 

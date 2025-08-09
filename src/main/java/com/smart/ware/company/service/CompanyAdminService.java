@@ -1,7 +1,7 @@
 package com.smart.ware.company.service;
 
 
-import com.smart.ware.company.dto.CreateCompanyRequest;
+import com.smart.ware.company.dto.request.CreateCompanyRequest;
 import com.smart.ware.company.entity.Company;
 import com.smart.ware.company.repository.CompanyRepository;
 import lombok.RequiredArgsConstructor;
