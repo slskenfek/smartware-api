@@ -30,7 +30,7 @@ public class SecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/swagger-ui/**"),
                                 new AntPathRequestMatcher("/v3/api-docs/**"),
                                 new AntPathRequestMatcher("/api/users/**"),
-                                new AntPathRequestMatcher("/api/login/**")
+                                new AntPathRequestMatcher("/api/auth/login/**")
                         ).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/admin/**")).hasAnyRole("ADMIN")
                         .anyRequest().authenticated()

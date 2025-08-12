@@ -40,10 +40,9 @@ dependencies {
 	annotationProcessor("jakarta.persistence:jakarta.persistence-api")
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
 
-	// JWT (jjwt)
-	implementation("io.jsonwebtoken:jjwt-api:0.11.5")
-	runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.5")
-	runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.11.5")
+	implementation("org.springframework.security:spring-security-oauth2-jose") // Nimbus 기반 JWT
+
+
 
 }
 
