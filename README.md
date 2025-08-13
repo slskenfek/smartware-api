@@ -52,5 +52,6 @@ SmartWare는 출퇴근 관리, 업무 보드, 전자결재, 채팅, 실시간 �
 
 ---
 
-## License
-This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License - see the [LICENSE](LICENSE) file for details.
+📝 License   
+This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License.
+See the LICENSE file for details.
