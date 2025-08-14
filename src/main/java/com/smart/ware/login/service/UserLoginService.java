@@ -13,6 +13,9 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+import java.security.NoSuchAlgorithmException;
+import java.time.LocalDateTime;
+
 @Service
 @RequiredArgsConstructor
 public class UserLoginService {
@@ -21,13 +24,20 @@ public class UserLoginService {
 
     private final AuthenticationManager authenticationManager;
 
-    public LoginResponse login(LoginRequest loginRequest) {
+    public LoginResponse login(LoginRequest loginRequest) throws NoSuchAlgorithmException {
 
         Authentication auth = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.userId(), loginRequest.password())
         );
-        tokenService.createAccessToken(auth);
-        return null;
+        String accessToken = tokenService.createAccessToken(auth);
+        String refreshToken = tokenService.createRefreshToken();
+        var tokenManager = new TokenManager(
+                accessToken,
+                refreshToken,
+                LocalDateTime.now().plusMinutes(30)
+        );
+
+        return new LoginResponse(tokenManager, auth.getName());
     }
 
 

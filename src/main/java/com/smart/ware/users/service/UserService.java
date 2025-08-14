@@ -16,13 +16,13 @@ public class UserService {
     private final UserRepository userRepository;
     public final UserFactory userFactory;
 
-    @Transactional
+
     public void createUsers(CreateUserRequest createUserRequest) {
         Users user = userFactory.createUser(createUserRequest);
         userRepository.save(user);
     }
 
-
+    @Transactional(readOnly = true)
     public UserResponse getUsers(String userId) {
         return userRepository.findByUserId(userId);
     }

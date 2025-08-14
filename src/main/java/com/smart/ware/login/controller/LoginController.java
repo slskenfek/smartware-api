@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.NoSuchAlgorithmException;
+
 @RequiredArgsConstructor
 @RequestMapping("/api/auth/login")
 @RestController
@@ -23,7 +25,7 @@ public class LoginController {
 
     @PostMapping("")
     @Operation(summary = "로그인", description = "로그인 API 입니다.")
-    public ResponseEntity<ResponseAPI<LoginResponse>> userLogin(LoginRequest loginRequest) {
+    public ResponseEntity<ResponseAPI<LoginResponse>> userLogin(LoginRequest loginRequest) throws NoSuchAlgorithmException {
         LoginResponse response = userLoginService.login(loginRequest);
         return ResponseEntity.ok(ResponseAPI.success(response));
 
