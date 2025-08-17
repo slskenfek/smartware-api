@@ -8,6 +8,8 @@ import java.time.Duration;
 @ConfigurationProperties(prefix = "app.jwt")
 public record JwtProps(
         String issuer,
+        String secret,
+        String algorithm,
         Duration accessTtl,
         Duration refreshTtl
 ) {

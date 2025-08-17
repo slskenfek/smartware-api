@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,7 +26,7 @@ public class LoginController {
 
     @PostMapping("")
     @Operation(summary = "로그인", description = "로그인 API 입니다.")
-    public ResponseEntity<ResponseAPI<LoginResponse>> userLogin(LoginRequest loginRequest) throws NoSuchAlgorithmException {
+    public ResponseEntity<ResponseAPI<LoginResponse>> userLogin(@RequestBody LoginRequest loginRequest) throws NoSuchAlgorithmException {
         LoginResponse response = userLoginService.login(loginRequest);
         return ResponseEntity.ok(ResponseAPI.success(response));
 

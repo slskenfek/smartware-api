@@ -1,7 +1,7 @@
 package com.smart.ware.users.service;
 
 import com.smart.ware.users.dto.CreateUserRequest;
-import com.smart.ware.users.dto.UserResponse;
+import com.smart.ware.users.dto.UserView;
 import com.smart.ware.users.entity.Users;
 import com.smart.ware.users.repository.UserRepository;
 import com.smart.ware.users.service.factory.UserFactory;
@@ -22,8 +22,4 @@ public class UserService {
         userRepository.save(user);
     }
 
-    @Transactional(readOnly = true)
-    public UserResponse getUsers(String userId) {
-        return userRepository.findByUserId(userId);
-    }
 }
