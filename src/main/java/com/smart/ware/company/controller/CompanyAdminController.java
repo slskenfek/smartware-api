@@ -36,9 +36,9 @@ public class CompanyAdminController {
                     @Parameter(name = "useYn", description = "사용 여부", required = true),
             }
     )
-    public ResponseEntity<ResponseAPI<Long>> createCompany(@RequestBody CreateCompanyRequest request) {
-        Long createId = companyAdminService.createCompany(request);
-        URI location = URI.create("/api/admin/company/" + createId);
-        return ResponseEntity.created(location).body(ResponseAPI.created(createId));
+    public ResponseEntity<ResponseAPI<String>> createCompany(@RequestBody CreateCompanyRequest request) {
+        String createCode = companyAdminService.createCompany(request);
+        URI location = URI.create("/api/admin/company/" + createCode);
+        return ResponseEntity.created(location).body(ResponseAPI.created(createCode));
     }
 }

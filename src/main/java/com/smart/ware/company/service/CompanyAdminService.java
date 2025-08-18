@@ -14,8 +14,8 @@ public class CompanyAdminService {
     private final CompanyRepository companyRepository;
 
 
-    public Long createCompany(CreateCompanyRequest request) {
+    public String createCompany(CreateCompanyRequest request) {
         Company createCompany = companyRepository.save(request.toEntity());
-        return createCompany.getId();
+        return createCompany.getCompanyCode();
     }
 }

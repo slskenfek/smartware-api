@@ -1,14 +1,11 @@
 package com.smart.ware.users.service.factory;
 
-import com.smart.ware.company.entity.Company;
-import com.smart.ware.company.repository.CompanyRepository;
 import com.smart.ware.users.dto.CreateUserRequest;
-import com.smart.ware.department.entity.Department;
 import com.smart.ware.users.entity.Users;
-import com.smart.ware.department.repository.DepartmentRepository;
 import com.smart.ware.users.service.UserAuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+
 
 /**
  * 유저 조립 담당
@@ -20,8 +17,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class UserFactory {
 
-    private final CompanyRepository companyRepository;
-    private final DepartmentRepository departmentRepository;
+
     private final UserAuthService userAuthService;
 
 

@@ -2,6 +2,8 @@ package com.smart.ware.company.dto.request;
 
 import com.smart.ware.company.entity.Company;
 
+import java.util.UUID;
+
 public record CreateCompanyRequest(
         String companyName, //회사 이름
 
@@ -25,6 +27,7 @@ public record CreateCompanyRequest(
         return Company.builder()
                 .companyName(companyName)
                 .address(address)
+                .companyCode(UUID.randomUUID().toString())
                 .companyCode(companyCode)
                 .businessNumber(businessNumber)
                 .email(email)
