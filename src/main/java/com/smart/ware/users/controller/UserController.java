@@ -30,7 +30,7 @@ public class UserController {
     }
     )
     public ResponseEntity<Boolean> createUsers(@RequestBody CreateUserRequest createUserRequest) {
-        userService.createUsers(createUserRequest);
+        userService.register(createUserRequest);
         return ResponseEntity.ok(true);
     }
 
@@ -45,7 +45,7 @@ public class UserController {
     )
     public ResponseEntity<ResponseAPI<Boolean>> changeUsers(@PathVariable String userId,
                                                             @RequestBody PatchUserRequest patchUserRequest) {
-        userService.changeUsers(userId, patchUserRequest);
+        userService.update(userId, patchUserRequest);
         return ResponseEntity.ok(ResponseAPI.success(true));
     }
 
