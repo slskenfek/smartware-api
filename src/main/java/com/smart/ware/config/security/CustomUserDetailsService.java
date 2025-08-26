@@ -1,7 +1,7 @@
 package com.smart.ware.config.security;
 
-import com.smart.ware.users.dto.UserView;
-import com.smart.ware.users.repository.UserQueryRepository;
+import com.smart.ware.domain.users.dto.UserView;
+import com.smart.ware.domain.users.repository.UserQueryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;

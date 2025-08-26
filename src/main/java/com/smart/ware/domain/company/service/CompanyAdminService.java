@@ -1,0 +1,21 @@
+package com.smart.ware.domain.company.service;
+
+
+import com.smart.ware.domain.company.dto.request.CreateCompanyRequest;
+import com.smart.ware.domain.company.entity.Company;
+import com.smart.ware.domain.company.repository.CompanyRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+public class CompanyAdminService {
+
+    private final CompanyRepository companyRepository;
+
+
+    public String createCompany(CreateCompanyRequest request) {
+        Company createCompany = companyRepository.save(request.toEntity());
+        return createCompany.getCompanyCode();
+    }
+}

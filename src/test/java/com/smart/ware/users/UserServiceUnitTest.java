@@ -1,11 +1,10 @@
 package com.smart.ware.users;
 
-import com.smart.ware.users.dto.CreateUserRequest;
-import com.smart.ware.users.entity.Users;
-import com.smart.ware.users.repository.UserRepository;
-import com.smart.ware.users.service.UserService;
-import com.smart.ware.users.service.factory.UserFactory;
-import org.junit.jupiter.api.Assertions;
+import com.smart.ware.domain.users.dto.CreateUserRequest;
+import com.smart.ware.domain.users.entity.Users;
+import com.smart.ware.domain.users.repository.UserRepository;
+import com.smart.ware.domain.users.service.UserService;
+import com.smart.ware.domain.users.service.factory.UserFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

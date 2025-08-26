@@ -1,7 +1,7 @@
 package com.smart.ware.config;
 
 import com.nimbusds.jose.jwk.source.ImmutableSecret;
-import com.smart.ware.token.domain.JwtProps;
+import com.smart.ware.domain.token.domain.JwtProps;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
